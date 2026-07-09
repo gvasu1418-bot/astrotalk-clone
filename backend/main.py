@@ -3,30 +3,27 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database.base import Base
+
 from app.database.connection import engine
 
 from app.models.user import User
-from backend.alembic.api.user import router as user_router
 
 from app.models.astrologer import Astrologer
 
-from backend.alembic.api.astrologer import router as astrologer_router
-
 from app.models.booking import Booking
-
-from backend.alembic.api.booking import router as booking_router
 
 from app.models.wallet import Wallet
 
-from backend.alembic.api.wallet import router as wallet_router
-
 from app.models.review import Review
 
-from backend.alembic.api.review import router as review_router
+from api.user import router as user_router
+from api.astrologer import router as astrologer_router
+from api.booking import router as booking_router
+from api.wallet import router as wallet_router
+from api.review import router as review_router
+from api.stats import router as stats_router
+from api.admin import router as admin_router
 
-from backend.alembic.api.stats import router as stats_router
-
-from backend.alembic.api.admin import router as admin_router
 
 app = FastAPI()
 app.add_middleware(

@@ -17,7 +17,7 @@ from app.core.jwt import create_access_token
 from app.core.dependencies import get_current_user
 from fastapi import Depends
 
-from app.services.user_service import register_user
+from app.services.user_service import register_user as register_user_service
 
 router = APIRouter()
 
