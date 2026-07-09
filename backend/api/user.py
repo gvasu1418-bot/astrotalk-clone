@@ -31,16 +31,18 @@ def test():
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
 
     new_user = User(
-    name=user.name,
-    email=user.email,
-    password=hash_password(user.password)
+        name=user.name,
+        email=user.email,
+        password=hash_password(user.password)
 )
 
     db.add(new_user)
     db.commit()
+    db.refresh(new_user)
 
     return {
-        "message": "User Registered Successfully"
+        "message": "User Registered Successfully",
+        "id": new_user.id
     }
     
 
@@ -94,15 +96,3 @@ def profile(
         "email": user.email
     }
     
-@router.post("/register")
-def register(
-    user: UserCreate,
-    db: Session = Depends(get_db)
-):
-
-    new_user = register_user(db, user)
-
-    return {
-        "message": "User Registered",
-        "id": new_user.id
-    }
