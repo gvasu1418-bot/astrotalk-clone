@@ -2,26 +2,23 @@ from fastapi import FastAPI
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.app.database.base import Base
 
-from backend.app.database.connection import engine
+from app.database.base import Base
+from app.database.connection import engine
 
-from backend.app.models.user import User
+from app.models.user import User
+from app.models.astrologer import Astrologer
+from app.models.booking import Booking
+from app.models.wallet import Wallet
+from app.models.review import Review
 
-from backend.app.models.astrologer import Astrologer
-from backend.app.models.booking import Booking
-from backend.app.models.wallet import Wallet
-from backend.app.models.review import Review
-
-
-from backend.api.user import router as user_router
-from backend.api.astrologer import router as astrologer_router
-from backend.api.booking import router as booking_router
-from backend.api.wallet import router as wallet_router
-from backend.api.review import router as review_router
-from backend.api.stats import router as stats_router
-from backend.api.admin import router as admin_router
-
+from api.user import router as user_router
+from api.astrologer import router as astrologer_router
+from api.booking import router as booking_router
+from api.wallet import router as wallet_router
+from api.review import router as review_router
+from api.stats import router as stats_router
+from api.admin import router as admin_router
 
 app = FastAPI()
 app.add_middleware(
