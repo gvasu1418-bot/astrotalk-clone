@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
+import traceback
+
 
 from app.database.connection import get_db
 from app.models.user import User
@@ -15,25 +17,30 @@ router = APIRouter()
 def test():
     return {"message": "User API Working"}
 
-
 @router.post("/register")
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
+    try:
+        new_user = User(
+            name=user.name,
+            email=user.email,
+            password=hash_password(user.password)
+        )
 
-    new_user = User(
-        name=user.name,
-        email=user.email,
-        password=hash_password(user.password)
-    )
+        db.add(new_user)
+        db.commit()
+        db.refresh(new_user)
 
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
+        return {
+            "message": "User Registered Successfully",
+            "id": new_user.id
+        }
 
-    return {
-        "message": "User Registered Successfully",
-        "id": new_user.id
-    }
-
+    except Exception as e:
+        print(traceback.format_exc())
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )
 
 @router.post("/login")
 def login_user(user: UserLogin, db: Session = Depends(get_db)):
