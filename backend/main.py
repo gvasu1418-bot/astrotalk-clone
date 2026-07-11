@@ -1,3 +1,11 @@
+print("=== START ===")
+
+from app.core.settings import DATABASE_URL
+print(DATABASE_URL)
+
+print("=== DATABASE LOADED ===")
+
+
 from fastapi import FastAPI
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -28,7 +36,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app.include_router(user_router)
 app.include_router(astrologer_router)
@@ -41,7 +49,7 @@ def home():
         "message": "AstroTalk Backend Running"
     }
     
-# Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app.include_router(wallet_router) 
 app.include_router(review_router)
