@@ -37,8 +37,19 @@ def search_astrologers(
     specialization: str,
     db: Session = Depends(get_db)
 ):
+
     astrologers = db.query(Astrologer).filter(
         Astrologer.specialization.ilike(f"%{specialization}%")
     ).all()
 
-    return astrologers
+    return [
+        {
+            "id": astro.id,
+            "name": astro.name,
+            "experience": astro.experience,
+            "specialization": astro.specialization,
+            "price_per_minute": astro.price_per_minute,
+            "bio": astro.bio
+        }
+        for astro in astrologers
+    ]

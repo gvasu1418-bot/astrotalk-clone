@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroTalk Clone</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+    <div class="logo">
+        <h2>🔮 AstroTalk</h2>
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#">Talk to Astrologer</a></li>
+
+            <li><a href="#">Horoscope</a></li>
+
+            <li><a href="#">Kundli</a></li>
+
+            <li><a href="#">Blog</a></li>
+
+        </ul>
+
+    </nav>
+
+    <div class="nav-buttons">
+
+        <span id="username"></span>
+
+        <button id="loginBtn">Login</button>
+
+        <button id="signupBtn">Sign Up</button>
+
+        <button id="logoutBtn" style="display:none;">Logout</button>
+
+    </div>
+
+</header>
+    
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Talk to India's Best Astrologers</h1>
+
+            <p>Connect instantly with verified astrologers anytime.</p>
+
+            <button class="hero-btn">Talk Now</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Search Section -->
+
+<section class="search-section">
+
+    <h2>Find Your Astrologer</h2>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search astrologer by name..."
+        >
+
+        <button id="searchBtn">
+            Search
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- Categories -->
+
+<section class="categories">
+
+    <div class="category">
+        🔮
+        <p>Tarot</p>
+    </div>
+
+    <div class="category">
+        ♈
+        <p>Horoscope</p>
+    </div>
+
+    <div class="category">
+        🪐
+        <p>Kundli</p>
+    </div>
+
+    <div class="category">
+        💖
+        <p>Love</p>
+    </div>
+
+    <div class="category">
+        💼
+        <p>Career</p>
+    </div>
+
+</section>
+
+
+
+<!-- Astrologers -->
+
+<section class="astrologers">
+
+    <h2>Top Astrologers</h2>
+
+    <div class="card-container" id="cardContainer">
+
+    </div>
+
+</section>
+
+    <script src="js/app.js"></script>
+
+    <footer class="footer">
+
+    <h3>AstroTalk Clone</h3>
+
+    <p>
+
+        © 2026 All Rights Reserved
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
