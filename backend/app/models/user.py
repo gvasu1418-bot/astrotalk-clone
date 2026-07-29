@@ -12,7 +12,7 @@ class User(Base):
     email = Column(String(255), unique=True, nullable=False)
     password = Column(String(255), nullable=False)
     
+    role = Column(String(20), default="user", nullable=False)
+
     bookings = relationship("Booking",back_populates="user")
     reviews = relationship("Review",back_populates="user")
-
-    # role = Column(String(20),default="user")

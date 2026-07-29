@@ -1,4 +1,4 @@
-("=== START ===")
+print("=== START ===")
 
 from app.core.settings import DATABASE_URL
 print(DATABASE_URL)

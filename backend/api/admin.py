@@ -1,7 +1,9 @@
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.database.connection import get_db
+from app.core.dependencies import get_current_admin
 
 from app.models.user import User
 from app.models.astrologer import Astrologer
@@ -13,7 +15,7 @@ router = APIRouter(prefix="/admin")
 
 
 @router.get("/dashboard")
-def dashboard(db: Session = Depends(get_db)):
+def dashboard(db: Session = Depends(get_db), admin: User = Depends(get_current_admin)):
 
     total_users = db.query(User).count()
 
