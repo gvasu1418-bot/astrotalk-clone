@@ -22,7 +22,7 @@ function getAvatarUrl(id) {
 }
 
 // Astrologer Data
-const API_URL = "http://https://astrotalk-clone-two.vercel.app";
+const API_URL = "https://astrotalk-clone-two.vercel.app";
 
 async function loadCards() {
 
