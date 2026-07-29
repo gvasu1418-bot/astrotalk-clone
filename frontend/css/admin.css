@@ -1,0 +1,290 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:250px;
+    background:#1e293b;
+    color:white;
+    padding:30px 20px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar ul li:hover{
+    background:#334155;
+}
+
+/* Main */
+
+.main-content{
+    flex:1;
+    padding:25px;
+}
+
+/* Navbar */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.navbar h2{
+    color:#333;
+}
+
+.navbar button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#6c2bd9;
+    color:white;
+    cursor:pointer;
+}
+
+.navbar button:hover{
+    background:#5a21b6;
+}
+
+/* Cards */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    text-align:center;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card h2{
+    color:#6c2bd9;
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    font-size:18px;
+}
+
+/* Tables */
+
+.tables{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.table-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.table-card h2{
+    margin-bottom:20px;
+    color:#333;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#6c2bd9;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#f8f8f8;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.tables{
+    grid-template-columns:1fr;
+}
+
+.sidebar{
+    display:none;
+}
+
+}
+
+.icon{
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+}
+
+.users-card{
+
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+
+    color:white;
+
+}
+
+.astro-card{
+
+    background:linear-gradient(135deg,#8E2DE2,#4A00E0);
+
+    color:white;
+
+}
+
+.booking-card{
+
+    background:linear-gradient(135deg,#43cea2,#185a9d);
+
+    color:white;
+
+}
+
+.revenue-card{
+
+    background:linear-gradient(135deg,#f7971e,#ffd200);
+
+    color:white;
+
+}
+
+.users-card h2,
+.astro-card h2,
+.booking-card h2,
+.revenue-card h2{
+
+    color:white;
+
+}
+
+.users-card p,
+.astro-card p,
+.booking-card p,
+.revenue-card p{
+
+    color:white;
+
+}
+
+/* Smooth Animation */
+
+.card,
+.table-card{
+
+    transition:0.35s ease;
+
+}
+
+/* Hover */
+
+.card:hover{
+
+    transform:translateY(-8px) scale(1.02);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+/* Table Hover */
+
+.table-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#6c2bd9;
+
+    border-radius:10px;
+
+}
+
+/* Dashboard Heading */
+
+.navbar h2{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+}
+
+/* Sidebar Animation */
+
+.sidebar ul li{
+
+    transition:.3s;
+
+}
+
+.sidebar ul li:hover{
+
+    padding-left:25px;
+
+}

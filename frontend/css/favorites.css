@@ -1,0 +1,19 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#6c2bd9;
+    color:white;
+    padding:18px 40px;
+}
+
+#favoriteContainer{
+    width:90%;
+    margin:40px auto;
+}

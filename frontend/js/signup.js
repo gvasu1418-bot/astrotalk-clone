@@ -1,4 +1,4 @@
-const API_URL = "https://astrotalk-clone-two.vercel.app";
+const API_URL = "http://127.0.0.1:8000";
 
 async function signup() {
 

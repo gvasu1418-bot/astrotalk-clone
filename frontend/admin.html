@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>🔮 AstroTalk</h2>
+
+        <ul>
+
+            <li>📊 Dashboard</li>
+
+            <li>👥 Users</li>
+
+            <li>🔮 Astrologers</li>
+
+            <li>📅 Bookings</li>
+
+            <li>💰 Revenue</li>
+
+            <li>⭐ Reviews</li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Navbar -->
+
+        <header class="navbar">
+
+            <h2>🛠 Admin Dashboard</h2>
+
+            <a href="index.html">
+
+                <button>⬅ Back</button>
+
+            </a>
+
+        </header>
+
+        <!-- Dashboard Cards -->
+
+        <section class="dashboard">
+
+    <div class="card users-card">
+
+        <div class="icon">👥</div>
+
+        <h2 id="users">0</h2>
+
+        <p>Total Users</p>
+
+    </div>
+
+    <div class="card astro-card">
+
+        <div class="icon">🔮</div>
+
+        <h2 id="astrologers">0</h2>
+
+        <p>Total Astrologers</p>
+
+    </div>
+
+    <div class="card booking-card">
+
+        <div class="icon">📅</div>
+
+        <h2 id="bookings">0</h2>
+
+        <p>Total Bookings</p>
+
+    </div>
+
+    <div class="card revenue-card">
+
+        <div class="icon">💰</div>
+
+        <h2 id="revenue">₹0</h2>
+
+        <p>Total Revenue</p>
+
+    </div>
+
+</section>
+
+        <!-- Tables -->
+
+        <section class="tables">
+
+            <!-- Recent Users -->
+
+            <div class="table-card">
+
+                <h2>👥 Recent Users</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="recentUsers">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Recent Bookings -->
+
+            <div class="table-card">
+
+                <h2>📅 Recent Bookings</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>User ID</th>
+
+                            <th>Astrologer ID</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="recentBookings">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+<section class="table-card">
+
+    <h2>📈 Dashboard Analytics</h2>
+
+    <canvas id="dashboardChart"></canvas>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="js/admin.js">
+</script>
+
+</body>
+
+</html>

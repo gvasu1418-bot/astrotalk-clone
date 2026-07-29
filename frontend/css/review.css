@@ -1,0 +1,49 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f5f5f5;
+}
+
+.navbar{
+background:#6c2bd9;
+color:white;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.review-box{
+width:500px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:12px;
+}
+
+.review-box select,
+.review-box textarea{
+width:100%;
+padding:12px;
+margin:15px 0;
+}
+
+.review-box button{
+width:100%;
+padding:14px;
+background:#ff9800;
+border:none;
+color:white;
+cursor:pointer;
+border-radius:8px;
+}
+
+.reviews{
+width:70%;
+margin:40px auto;
+}

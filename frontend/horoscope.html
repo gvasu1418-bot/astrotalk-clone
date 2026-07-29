@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daily Horoscope</title>
+
+    <link rel="stylesheet" href="css/horoscope.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <h2>🔮 Daily Horoscope</h2>
+
+    <a href="index.html">
+        <button>⬅ Back</button>
+    </a>
+
+</header>
+
+<section class="horoscope-container">
+
+    <h1>Select Your Zodiac Sign</h1>
+
+    <select id="zodiacSelect">
+
+        <option value="">-- Select Zodiac --</option>
+
+        <option>Aries</option>
+        <option>Taurus</option>
+        <option>Gemini</option>
+        <option>Cancer</option>
+        <option>Leo</option>
+        <option>Virgo</option>
+        <option>Libra</option>
+        <option>Scorpio</option>
+        <option>Sagittarius</option>
+        <option>Capricorn</option>
+        <option>Aquarius</option>
+        <option>Pisces</option>
+
+    </select>
+
+    <button onclick="showHoroscope()">
+        Show Horoscope
+    </button>
+
+    <div class="result">
+
+        <h2 id="signName"></h2>
+
+        <p id="prediction">
+            Please select your zodiac sign.
+        </p>
+
+    </div>
+
+</section>
+
+<script src="js/horoscope.js"></script>
+
+</body>
+
+</html>

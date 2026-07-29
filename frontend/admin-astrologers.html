@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Manage Astrologers</title>
+
+<link rel="stylesheet" href="css/admin-astrologers.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<h2>🔮 Manage Astrologers</h2>
+
+<a href="admin.html">
+<button>⬅ Back</button>
+</a>
+
+</header>
+
+<section class="container">
+
+<h2>Add Astrologer</h2>
+
+<input
+type="text"
+id="name"
+placeholder="Name">
+
+<input
+type="text"
+id="specialization"
+placeholder="Specialization">
+
+<input
+type="number"
+id="experience"
+placeholder="Experience">
+
+<input
+type="number"
+id="price"
+placeholder="Price Per Minute">
+
+<button onclick="addAstrologer()">
+Add Astrologer
+</button>
+
+</section>
+
+<section
+id="astrologerList"
+class="list">
+
+</section>
+
+<script src="js/admin-astrologers.js"></script>
+
+</body>
+
+</html>
