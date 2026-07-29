@@ -9,6 +9,9 @@ from app.schemas.user import UserCreate, UserLogin
 from app.core.security import hash_password, verify_password
 from app.core.jwt import create_access_token
 from app.core.dependencies import get_current_user
+from app.models.wallet import Wallet
+
+
 
 router = APIRouter()
 
@@ -29,6 +32,14 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
         db.add(new_user)
         db.commit()
         db.refresh(new_user)
+        
+        wallet = Wallet(
+            user_id=new_user.id,
+            balance=500
+        )
+
+        db.add(wallet)
+        db.commit()
 
         return {
             "message": "User Registered Successfully",
@@ -45,9 +56,19 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
 @router.post("/login")
 def login_user(user: UserLogin, db: Session = Depends(get_db)):
 
+    print("========== LOGIN ==========")
+    print("Email Received:", user.email)
+
     db_user = db.query(User).filter(
         User.email == user.email
     ).first()
+
+    print("DB User:", db_user)
+
+    if db_user:
+        print("DB Email:", db_user.email)
+        print("DB Password:", db_user.password)
+        print("Password Match:", verify_password(user.password, db_user.password))
 
     if not db_user:
         return {"message": "Invalid Email or Password"}
@@ -63,7 +84,6 @@ def login_user(user: UserLogin, db: Session = Depends(get_db)):
         "access_token": access_token,
         "token_type": "bearer"
     }
-
 
 @router.get("/profile")
 def profile(

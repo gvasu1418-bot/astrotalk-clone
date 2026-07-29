@@ -53,3 +53,25 @@ def search_astrologers(
         }
         for astro in astrologers
     ]
+    
+@router.get("/astrologers")
+def get_all_astrologers(
+    db: Session = Depends(get_db)
+):
+
+    astrologers = db.query(Astrologer).all()
+
+    return [
+        {
+            "id": astro.id,
+            "name": astro.name,
+            "experience": astro.experience,
+            "specialization": astro.specialization,
+            "price_per_minute": astro.price_per_minute,
+            "bio": astro.bio,
+            "rating": astro.rating
+        }
+
+        for astro in astrologers
+    ]
+    

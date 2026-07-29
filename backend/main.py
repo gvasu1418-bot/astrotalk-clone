@@ -55,4 +55,3 @@ app.include_router(wallet_router)
 app.include_router(review_router)
 app.include_router(stats_router)
 app.include_router(admin_router)
-print

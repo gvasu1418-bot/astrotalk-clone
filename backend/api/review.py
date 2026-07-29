@@ -5,6 +5,7 @@ from app.database.connection import get_db
 from app.core.dependencies import get_current_user
 
 from app.models.review import Review
+from app.models.astrologer import Astrologer
 from app.schemas.review import ReviewCreate
 
 router = APIRouter()
@@ -16,6 +17,16 @@ def create_review(
     current_user_id=Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
+
+    astrologer = db.query(Astrologer).filter(
+        Astrologer.id == review.astrologer_id
+    ).first()
+
+    if not astrologer:
+        raise HTTPException(
+            status_code=404,
+            detail="Astrologer Not Found"
+        )
 
     if review.rating < 1 or review.rating > 5:
         raise HTTPException(
@@ -32,9 +43,11 @@ def create_review(
 
     db.add(new_review)
     db.commit()
+    db.refresh(new_review)
 
     return {
-        "message": "Review Added"
+        "message": "Review Added Successfully",
+        "review_id": new_review.id
     }
 
 

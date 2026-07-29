@@ -1,19 +1,17 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.database.connection import get_db
 from app.core.dependencies import get_current_user
 
 from app.models.booking import Booking
+from app.models.wallet import Wallet
+from app.models.astrologer import Astrologer
 
 from app.schemas.booking import BookingCreate
 
-from app.models.wallet import Wallet
-from app.models.astrologer import Astrologer
-from fastapi import HTTPException
-
-
 router = APIRouter()
+
 
 @router.post("/bookings")
 def create_booking(
@@ -58,9 +56,7 @@ def create_booking(
     )
 
     db.add(new_booking)
-
     db.commit()
-
     db.refresh(new_booking)
 
     return {
@@ -68,3 +64,31 @@ def create_booking(
         "booking_id": new_booking.id,
         "remaining_balance": wallet.balance
     }
+
+
+@router.get("/bookings")
+def get_bookings(
+    current_user_id=Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+
+    bookings = db.query(Booking).filter(
+        Booking.user_id == current_user_id
+    ).all()
+
+    result = []
+
+    for booking in bookings:
+
+        astrologer = db.query(Astrologer).filter(
+            Astrologer.id == booking.astrologer_id
+        ).first()
+
+        result.append({
+            "booking_id": booking.id,
+            "astrologer": astrologer.name,
+            "specialization": astrologer.specialization,
+            "price": astrologer.price_per_minute
+        })
+
+    return result

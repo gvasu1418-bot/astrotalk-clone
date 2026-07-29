@@ -1,7 +1,8 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
 
 from app.database.base import Base
-from sqlalchemy.orm import relationship
+
 
 class Review(Base):
     __tablename__ = "reviews"
@@ -21,13 +22,13 @@ class Review(Base):
     rating = Column(Integer)
 
     comment = Column(String(500))
-    
-    user = relationship(
-    "User",
-    back_populates="reviews"
-)
 
-astrologer = relationship(
-    "Astrologer",
-    back_populates="reviews"
-)
+    user = relationship(
+        "User",
+        back_populates="reviews"
+    )
+
+    astrologer = relationship(
+        "Astrologer",
+        back_populates="reviews"
+    )

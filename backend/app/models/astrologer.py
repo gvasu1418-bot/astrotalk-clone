@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy.orm import relationship
 
 from app.database.base import Base
 
-from sqlalchemy.orm import relationship
 
 class Astrologer(Base):
     __tablename__ = "astrologers"
@@ -22,13 +22,13 @@ class Astrologer(Base):
     rating = Column(Integer, default=5)
 
     bio = Column(Text)
-    
-    bookings = relationship(
-    "Booking",
-    back_populates="astrologer"
-)
 
-reviews = relationship(
-    "Review",
-    back_populates="astrologer"
-)
+    bookings = relationship(
+        "Booking",
+        back_populates="astrologer"
+    )
+
+    reviews = relationship(
+        "Review",
+        back_populates="astrologer"
+    )
